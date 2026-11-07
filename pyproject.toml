@@ -1,0 +1,26 @@
+[project]
+name = "glasscut"
+version = "0.1.0"
+description = "Guillotine cutting plans for window glass"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "PyYAML",
+    "reportlab",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "pypdf"]
+
+[project.scripts]
+glasscut = "glasscut.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["glasscut*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

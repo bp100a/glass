@@ -1,0 +1,75 @@
+# Rough opening sizes. Each pane is cut smaller by `adjustment` on width and height.
+adjustment: "1/16"
+thickness: "1/8"
+kerf: 0
+# Waste snapped off a score must be at least this wide, so it can be levered.
+min_leverage: 3
+stock:
+  - width: 36
+    height: 44
+    thickness: "1/8"
+    on_hand: 5
+windows:
+  - id: LRM
+    name: Living Room Middle
+    panes:
+      - name: upper
+        width: "37 3/4"
+        height: "28 5/16"
+      - name: lower
+        width: "37 3/4"
+        height: 28
+  - id: DRM
+    name: Dining Room Middle
+    panes:
+      - name: upper
+        width: "37 13/16"
+        height: "28 3/8"
+      - name: lower
+        width: "37 13/16"
+        height: 28
+  - id: DRS
+    name: Dining Room Side
+    panes:
+      - name: upper
+        width: 36
+        height: "28 1/8"
+      - name: lower
+        width: 36
+        height: 28
+  - id: LRW
+    name: Living Room West
+    panes:
+      - name: upper
+        width: "16 7/8"
+        height: "28 3/8"
+      - name: lower
+        width: "16 3/4"
+        height: "27 7/8"
+  - id: DRW
+    name: Dining Room West
+    panes:
+      - name: upper
+        width: "16 7/8"
+        height: "28 5/16"
+      - name: lower
+        width: "16 7/8"
+        height: 28
+  - id: LRE
+    name: Living Room East
+    panes:
+      - name: upper
+        width: "16 3/4"
+        height: "28 3/8"
+      - name: lower
+        width: "16 7/8"
+        height: "27 7/8"
+  - id: DRE
+    name: Dining Room East
+    panes:
+      - name: upper
+        width: "16 3/4"
+        height: "28 1/2"
+      - name: lower
+        width: "16 3/4"
+        height: "27 7/8"
