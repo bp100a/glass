@@ -1,5 +1,5 @@
 # Rough opening sizes. Each pane is cut smaller by `adjustment` on width and height.
-adjustment: "1/16"
+adjustment: "1/8"
 thickness: "1/8"
 kerf: 0
 # Waste snapped off a score must be at least this wide, so it can be levered.

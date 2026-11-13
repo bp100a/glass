@@ -18,20 +18,20 @@ ROOT = Path(__file__).resolve().parents[1]
 JOB_PATH = ROOT / "data" / "windows.yaml"
 
 EXPECTED_CUTS = {
-    ("LRM", "upper"): ("37 11/16", "28 1/4"),
-    ("LRM", "lower"): ("37 11/16", "27 15/16"),
-    ("DRM", "upper"): ("37 3/4", "28 5/16"),
-    ("DRM", "lower"): ("37 3/4", "27 15/16"),
-    ("DRS", "upper"): ("35 15/16", "28 1/16"),
-    ("DRS", "lower"): ("35 15/16", "27 15/16"),
-    ("LRW", "upper"): ("16 13/16", "28 5/16"),
-    ("LRW", "lower"): ("16 11/16", "27 13/16"),
-    ("DRW", "upper"): ("16 13/16", "28 1/4"),
-    ("DRW", "lower"): ("16 13/16", "27 15/16"),
-    ("LRE", "upper"): ("16 11/16", "28 5/16"),
-    ("LRE", "lower"): ("16 13/16", "27 13/16"),
-    ("DRE", "upper"): ("16 11/16", "28 7/16"),
-    ("DRE", "lower"): ("16 11/16", "27 13/16"),
+    ("LRM", "upper"): ("37 5/8", "28 3/16"),
+    ("LRM", "lower"): ("37 5/8", "27 7/8"),
+    ("DRM", "upper"): ("37 11/16", "28 1/4"),
+    ("DRM", "lower"): ("37 11/16", "27 7/8"),
+    ("DRS", "upper"): ("35 7/8", "28"),
+    ("DRS", "lower"): ("35 7/8", "27 7/8"),
+    ("LRW", "upper"): ("16 3/4", "28 1/4"),
+    ("LRW", "lower"): ("16 5/8", "27 3/4"),
+    ("DRW", "upper"): ("16 3/4", "28 3/16"),
+    ("DRW", "lower"): ("16 3/4", "27 7/8"),
+    ("LRE", "upper"): ("16 5/8", "28 1/4"),
+    ("LRE", "lower"): ("16 3/4", "27 3/4"),
+    ("DRE", "upper"): ("16 5/8", "28 3/8"),
+    ("DRE", "lower"): ("16 5/8", "27 3/4"),
 }
 
 SMALL_WINDOWS = ("LRW", "DRW", "LRE", "DRE")
@@ -60,7 +60,7 @@ def test_parse_inches():
 
 
 def test_job_adjustment_and_thickness(job):
-    assert job.adjustment == Fraction(1, 16)
+    assert job.adjustment == Fraction(1, 8)
     assert job.min_leverage == 3
     assert job.thickness == Fraction(1, 8)
     assert job.stock[0].on_hand == 5
@@ -213,12 +213,13 @@ def test_pdf_report(job, plan, tmp_path: Path):
         assert window_id in text
         assert window_name in text
     assert "Sheets to buy: 5" in text
-    assert "Adjustment: 1/16" in text
+    assert "Adjustment: 1/8" in text
     assert "Thickness: 1/8" in text
     assert format_quantity(plan.waste_area) in text
     assert "completed" in text
     assert "Waste:" in text
     assert "Pane schedule" in text
+    assert f"adjustment of {format_inches(job.adjustment)}" in text
     assert "Cut list" in text
 
 
