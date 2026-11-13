@@ -92,7 +92,8 @@ def _schedule(pdf: canvas.Canvas, job: Job, plan: CutPlan) -> None:
     y = _text(
         pdf,
         y,
-        "Rough sizes are the openings. Cut size subtracts the adjustment from width and from height.",
+        "Rough sizes are the openings. Cut size subtracts an adjustment of "
+        f"{format_inches(job.adjustment)}\" from width and from height.",
         size=9,
         gap=16,
     )

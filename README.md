@@ -2,7 +2,7 @@
 
 A Python command-line tool that turns a YAML list of sheet stock and window panes into a guillotine cut plan. It cuts every pane, keeps both panes of a window on the same sheet whenever they fit, and writes a letter-size PDF with a to-scale drawing and an ordered score list for each sheet.
 
-The included job, [`data/windows.yaml`](data/windows.yaml), is seven windows of 1/8" glass cut from 36" x 44" sheets. Five sheets are on hand. The plan uses 10 sheets and buys 5. Waste on that plan is 5822.98 sq in (40.44 sq ft, 36.8% of the glass used).
+The included job, [`data/windows.yaml`](data/windows.yaml), is seven windows of 1/8" glass cut from 36" x 44" sheets. Five sheets are on hand. The plan uses 10 sheets and buys 5. Waste on that plan is 5869.80 sq in (40.76 sq ft, 37.1% of the glass used).
 
 The design notes are in [`glass_cut_planner.plan.md`](glass_cut_planner.plan.md).
 
@@ -31,13 +31,13 @@ That writes `out/cut-plan.pdf` and prints:
 
 ```text
 Sheets to buy: 5
-Waste: 5822.98 sq in (40.44 sq ft, 36.8%)
+Waste: 5869.80 sq in (40.76 sq ft, 37.1%)
 ```
 
 ## Job file
 
 ```yaml
-adjustment: "1/16"
+adjustment: "1/8"
 thickness: "1/8"
 kerf: 0
 min_leverage: 3
@@ -65,5 +65,5 @@ windows:
 `out/cut-plan.pdf` has three parts:
 
 1. A summary of the adjustment, thickness, stock, sheets required, sheets taken from stock, sheets to buy, every window and the sheets its panes come from, and waste in square inches, square feet, and percent.
-2. A pane schedule with thickness, rough opening, cut size, and sheet number.
+2. A pane schedule that states the adjustment amount, then one row per pane with thickness, rough opening, cut size, and sheet number.
 3. One page per sheet: a to-scale drawing, the ordered scores, the placed panes, the offcuts, and that sheet's waste.
